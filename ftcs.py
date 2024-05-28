@@ -63,10 +63,10 @@ for idx, Y in enumerate(stiffness_values):
         y_old[:] = y
         y[:] = y_new
 
-        if t % (n*M/frames) != 0:    
-            plt.plot(x,y)
-            plt.show()
-            n+=1
+        # if t % (n*M/frames) != 0:    
+        #     plt.plot(x,y)
+        #     plt.show()
+        #     n+=1
 
     # Plot the final state of the string
     plt.plot(x, y, label=f'Final State (Y = {Y} Pa)')
@@ -76,6 +76,7 @@ for idx, Y in enumerate(stiffness_values):
     plt.legend()
     plt.show()
 
+    print(y)
     # Save the solution as a sound file
     sampling_rate = 44100
     waveform = np.interp(np.linspace(0, N, M), np.arange(N), y)
